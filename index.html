@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nova Supply | Vente en gros B2B internationale</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="brand" href="#products" aria-label="Voir le catalogue Nova Supply">
+        <span class="brand-mark"></span>
+        <span>Nova Supply</span>
+      </a>
+      <nav class="nav-links" aria-label="Navigation principale">
+        <a href="#catalog">Catalogue</a>
+        <a href="#products">Produits</a>
+        <a href="#sourcing">Approvisionnement</a>
+        <a href="#market">Marché</a>
+        <a href="#buyers">Acheteurs</a>
+      </nav>
+      <div class="header-actions">
+        <button class="locale" type="button">FR / EN</button>
+        <a class="glass-button compact" href="https://wa.me/2250788038502" target="_blank" rel="noreferrer">WhatsApp</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="top">
+        <img
+          class="hero-image parallax"
+          data-speed="-0.12"
+          src="assets/hero-products-v2.png"
+          alt="Produits premium de vente en gros disposés dans un studio blanc chaud"
+        />
+        <div class="hero-vignette" aria-hidden="true"></div>
+        <div class="hero-content reveal">
+          <p class="eyebrow">Nova Supply</p>
+          <h1>Nova Supply</h1>
+          <p class="hero-copy">
+            Gros et détail en Côte d'Ivoire. Pour boutiques, revendeurs et particuliers.
+          </p>
+          <div class="hero-actions">
+            <a class="glass-button" href="#catalog">Explorer le catalogue</a>
+            <a class="text-link" href="https://wa.me/2250788038502" target="_blank" rel="noreferrer">WhatsApp acheteur</a>
+          </div>
+        </div>
+        <div class="hero-metrics reveal">
+          <div>
+            <span class="metric-value">Côte d'Ivoire</span>
+            <span class="metric-label">service local uniquement</span>
+          </div>
+          <div>
+            <span class="metric-value">Livraison</span>
+            <span class="metric-label">coursier disponible</span>
+          </div>
+          <div>
+            <span class="metric-value">WhatsApp</span>
+            <span class="metric-label">contactez-nous</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="category-band" id="catalog" aria-labelledby="catalog-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Architecture catalogue</p>
+        </div>
+        <div class="category-grid">
+          <article class="category-card reveal" data-category-target="Rangement" role="link" tabindex="0">
+            <div class="card-media">
+              <img src="photos/Rangement/001-Etagere-a-chaussures-3-en-1-7500.png" alt="Catégorie rangement" />
+            </div>
+            <div class="card-copy">
+              <span>01</span>
+              <h3>Étagères & Rangement</h3>
+              <p>Étagères, portants, meubles d'entrée et solutions gain de place.</p>
+            </div>
+          </article>
+          <article class="category-card reveal" data-category-target="Beaute" role="link" tabindex="0">
+            <div class="card-media position-two">
+              <img src="photos/Beaute/001-Hot-air-styler-5-en-1-7500.png" alt="Catégorie beauté et bien-être" />
+            </div>
+            <div class="card-copy">
+              <span>02</span>
+              <h3>Beauté & Bien-être</h3>
+              <p>Flacons de soin, recharges, parfums et essentiels spa.</p>
+            </div>
+          </article>
+          <article class="category-card reveal" data-category-target="Eclairage" role="link" tabindex="0">
+            <div class="card-media position-three">
+              <img src="photos/Eclairage/001-Ring-light-LED-12-pouces-6000.png" alt="Catégorie éclairage et studio" />
+            </div>
+            <div class="card-copy">
+              <span>03</span>
+              <h3>Éclairage & Studio</h3>
+              <p>Ring lights, lampes LED, rubans lumineux et accessoires créateurs.</p>
+            </div>
+          </article>
+          <article class="category-card reveal" data-category-target="Cuisine" role="link" tabindex="0">
+            <div class="card-media position-four">
+              <img src="photos/Cuisine/029-DISTRIBUTEUR-DE-RIZ-12L-GRANDE-CAPACITE-10000.png" alt="Catégorie cuisine" />
+            </div>
+            <div class="card-copy">
+              <span>04</span>
+              <h3>Cuisine</h3>
+              <p>Mixeurs, hachoirs, rangements alimentaires et accessoires pratiques.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="catalog-products" id="products" aria-labelledby="products-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Catalogue réel</p>
+          <h2 id="products-title">Tous les produits sont disponibles</h2>
+        </div>
+        <form class="catalog-search reveal" id="catalogSearch" role="search">
+          <label for="productSearch">Recherche produit</label>
+          <div class="search-control">
+            <input id="productSearch" type="search" placeholder="Rechercher un produit" autocomplete="off" />
+            <button class="glass-button compact" type="submit">Rechercher</button>
+          </div>
+        </form>
+        <div class="catalog-toolbar reveal">
+          <div class="category-filters" id="categoryFilters" aria-label="Filtres de catégories"></div>
+          <p class="catalog-count" id="catalogCount"></p>
+        </div>
+        <div class="product-grid" id="productGrid" aria-live="polite"></div>
+      </section>
+
+      <section class="buyer-panel" id="buyers">
+        <div class="quote-banner reveal">
+          <img src="assets/wholesale-quote-bg.png" alt="Cartons de livraison pour devis grossiste" />
+          <div class="quote-content">
+            <h2>Vente en gros à prix spécial</h2>
+            <p>Vous êtes revendeur ou commerçant ? Contactez-nous sur WhatsApp pour un devis personnalisé.</p>
+            <a class="quote-button" href="https://wa.me/2250788038502" target="_blank" rel="noreferrer">Demander un devis</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Nova Supply</span>
+      <span>WhatsApp: +225 07 88 03 85 02</span>
+      <span>Adjame, Abidjan, Cote d'Ioire</span>
+    </footer>
+
+    <script src="products.js?v=3"></script>
+    <script src="script.js?v=3"></script>
+  </body>
+</html>
