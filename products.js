@@ -84,6 +84,30 @@
         "image":  "photos/Autres produits/014-Ventilateur-LED-camping-3-en-1-5500.png"
     },
     {
+        "category":  "Autres produits",
+        "name":  "Lampe solaire portable",
+        "price":  0,
+        "image":  "photos/Autres produits/015-Lampe-solaire-portable-0000.png"
+    },
+    {
+        "category":  "Autres produits",
+        "name":  "Bouteille isotherme",
+        "price":  0,
+        "image":  "photos/Autres produits/016-Bouteille-isotherme-0000.png"
+    },
+    {
+        "category":  "Autres produits",
+        "name":  "Matelas gonflable voiture",
+        "price":  0,
+        "image":  "photos/Autres produits/017-Matelas-gonflable-voiture-0000.png"
+    },
+    {
+        "category":  "Autres produits",
+        "name":  "Matelas gonflable double",
+        "price":  0,
+        "image":  "photos/Autres produits/018-Matelas-gonflable-double-0000.jpg"
+    },
+    {
         "category":  "Beaute",
         "name":  "Appareil de massage raffermissant 4 en 1",
         "price":  5500,
@@ -160,6 +184,12 @@
         "name":  "Support de manucure avec loupe et lumiere",
         "price":  5000,
         "image":  "photos/Beaute/013-Support-de-manucure-avec-loupe-et-lumiere-5000.png"
+    },
+    {
+        "category":  "Beaute",
+        "name":  "Organisateur cosmetique rotatif 360",
+        "price":  0,
+        "image":  "photos/Beaute/014-Organisateur-cosmetique-rotatif-360-0000.png"
     },
     {
         "category":  "Cuisine",
@@ -390,6 +420,18 @@
         "image":  "photos/Cuisine/038-Trancheuse-a-fromage-tout-en-un-4000.png"
     },
     {
+        "category":  "Cuisine",
+        "name":  "Moulin multifonction",
+        "price":  0,
+        "image":  "photos/Cuisine/039-Moulin-multifonction-0000.png"
+    },
+    {
+        "category":  "Cuisine",
+        "name":  "Batteur a oeufs electrique sans fil",
+        "price":  0,
+        "image":  "photos/Cuisine/040-Batteur-a-oeufs-electrique-sans-fil-0000.png"
+    },
+    {
         "category":  "Eclairage",
         "name":  "Bande LED 10 metres",
         "price":  5500,
@@ -532,6 +574,12 @@
         "name":  "Trepied suiveur intelligent",
         "price":  9500,
         "image":  "photos/Eclairage/024-Trepied-suiveur-intelligent-9500.png"
+    },
+    {
+        "category":  "Eclairage",
+        "name":  "Trepied leger multifonction",
+        "price":  0,
+        "image":  "photos/Eclairage/025-Trepied-leger-multifonction-0000.png"
     },
     {
         "category":  "Maison",
@@ -702,6 +750,30 @@
         "image":  "photos/Maison/028-Ventilateur-portable-humidificateur-6000.png"
     },
     {
+        "category":  "Maison",
+        "name":  "Balai rotatif lavage essorage",
+        "price":  0,
+        "image":  "photos/Maison/029-Balai-rotatif-lavage-essorage-0000.png"
+    },
+    {
+        "category":  "Maison",
+        "name":  "Brosse de nettoyage electrique 7 en 1",
+        "price":  0,
+        "image":  "photos/Maison/030-Brosse-de-nettoyage-electrique-7-en-1-0000.png"
+    },
+    {
+        "category":  "Maison",
+        "name":  "Lampe de bureau led portable",
+        "price":  0,
+        "image":  "photos/Maison/031-Lampe-de-bureau-led-portable-0000.png"
+    },
+    {
+        "category":  "Maison",
+        "name":  "Mini climatiseur portable",
+        "price":  0,
+        "image":  "photos/Maison/032-Mini-climatiseur-portable-0000.png"
+    },
+    {
         "category":  "Rangement",
         "name":  "Commode de rangement 4 tiroirs",
         "price":  22000,
@@ -834,6 +906,42 @@
         "image":  "photos/Rangement/022-Table-d-appoint-papillon-5000.png"
     },
     {
+        "category":  "Rangement",
+        "name":  "Petite table d appoint elegante fonctionnelle",
+        "price":  0,
+        "image":  "photos/Rangement/023-Petite-table-d-appoint-elegante-fonctionnelle-0000.png"
+    },
+    {
+        "category":  "Rangement",
+        "name":  "Porte manteau a roulettes 360",
+        "price":  0,
+        "image":  "photos/Rangement/024-Porte-manteau-a-roulettes-360-0000.png"
+    },
+    {
+        "category":  "Rangement",
+        "name":  "Etagere a chaussures 20 paires",
+        "price":  0,
+        "image":  "photos/Rangement/025-Etagere-a-chaussures-20-paires-0000.png"
+    },
+    {
+        "category":  "Rangement",
+        "name":  "Etagere a chaussures 20 paires 2",
+        "price":  0,
+        "image":  "photos/Rangement/026-Etagere-a-chaussures-20-paires-2-0000.png"
+    },
+    {
+        "category":  "Rangement",
+        "name":  "Etagere de bureau multifonction",
+        "price":  0,
+        "image":  "photos/Rangement/027-Etagere-de-bureau-multifonction-0000.png"
+    },
+    {
+        "category":  "Rangement",
+        "name":  "Etagere de rangement compacte",
+        "price":  0,
+        "image":  "photos/Rangement/028-Etagere-de-rangement-compacte-0000.png"
+    },
+    {
         "category":  "Sante-Bien-etre",
         "name":  "Bain de pieds chaud et relaxant",
         "price":  14500,
@@ -922,5 +1030,11 @@
         "name":  "Tensiometre electronique",
         "price":  7000,
         "image":  "photos/Sante-Bien-etre/015-Tensiometre-electronique-7000.png"
+    },
+    {
+        "category":  "Sante-Bien-etre",
+        "name":  "Masseur corporel 6 en 1",
+        "price":  0,
+        "image":  "photos/Sante-Bien-etre/016-Masseur-corporel-6-en-1-0000.png"
     }
 ];

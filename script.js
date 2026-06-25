@@ -172,8 +172,8 @@ function renderProducts(category) {
             <div class="product-info">
               <h3>${escapeHtml(product.name)}</h3>
               <strong>${formatPrice(product.price)}</strong>
-              <p class="product-availability"><b>En Gros / Détail</b><span>disponible</span></p>
-              <a class="product-whatsapp" href="${buildWhatsAppLink(product)}" target="_blank" rel="noreferrer">WhatsApp</a>
+              <p class="product-availability"><b>En Gros / Détail</b><span>Disponible</span></p>
+              <a class="product-whatsapp" href="${buildWhatsAppLink(product)}" target="_blank" rel="noreferrer">Commander sur WhatsApp</a>
             </div>
         </article>
       `
@@ -198,11 +198,16 @@ function bindProductSearch() {
 }
 
 function orderCategories(categories) {
-  const preferred = ["Rangement"];
+  const preferred = ["Rangement", "Eclairage"];
+  const late = ["Autres produits"];
   const rest = categories
-    .filter((category) => !preferred.includes(category))
+    .filter((category) => !preferred.includes(category) && !late.includes(category))
     .sort((a, b) => getCategoryLabel(a).localeCompare(getCategoryLabel(b), "fr"));
-  return [...preferred.filter((category) => categories.includes(category)), ...rest];
+  return [
+    ...preferred.filter((category) => categories.includes(category)),
+    ...rest,
+    ...late.filter((category) => categories.includes(category)),
+  ];
 }
 
 function normalizeSearch(value) {
@@ -235,3 +240,4 @@ function escapeHtml(value) {
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
 }
+
