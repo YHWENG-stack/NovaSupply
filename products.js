@@ -3,7 +3,7 @@
         "category":  "Autres produits",
         "name":  "Aspirateur cyclonique puissant",
         "price":  6500,
-        "image":  "photos/Autres produits/001-Aspirateur-cyclonique-puissant-6500.png"
+        "image":  "photos/Autres produits/0020-Aspirateur-cyclonique-puissant-6500.png"
     },
     {
         "category":  "Autres produits",
@@ -16,6 +16,18 @@
         "name":  "Matelas gonflable voiture",
         "price":  12000,
         "image":  "photos/Autres produits/003-Matelas-gonflable-voiture-12000.png"
+    },
+    {
+        "category":  "Autres produits",
+        "name":  "Pompe a air electrique compacte",
+        "price":  2500,
+        "image":  "photos/Autres produits/003-Pompe-a-air-electrique-compacte-2500.png"
+    },
+    {
+        "category":  "Autres produits",
+        "name":  "Pompe a main puissante polyvalente",
+        "price":  2000,
+        "image":  "photos/Autres produits/003-Pompe-a-main-puissante-polyvalente-2000.png"
     },
     {
         "category":  "Autres produits",
@@ -102,28 +114,16 @@
         "image":  "photos/Autres produits/017-Devidoir-de-tuyau-portable-12000.png"
     },
     {
-        "category":  "Autres produits",
-        "name":  "Pompe a air electrique compacte",
-        "price":  2500,
-        "image":  "photos/Autres produits/018-Pompe-a-air-electrique-compacte-2500.png"
-    },
-    {
-        "category":  "Autres produits",
-        "name":  "Pompe a main puissante polyvalente",
-        "price":  2000,
-        "image":  "photos/Autres produits/019-Pompe-a-main-puissante-polyvalente-2000.png"
+        "category":  "Beaute",
+        "name":  "Hot air styler 5 en 1",
+        "price":  7500,
+        "image":  "photos/Beaute/001-Hot-air-styler-5-en-1-7500.png"
     },
     {
         "category":  "Beaute",
-        "name":  "Boucleur automatique rapide",
-        "price":  7000,
-        "image":  "photos/Beaute/001-Boucleur-automatique-rapide-7000.png"
-    },
-    {
-        "category":  "Beaute",
-        "name":  "Boucleur francais 30 secondes",
-        "price":  6000,
-        "image":  "photos/Beaute/002-Boucleur-francais-30-secondes-6000.png"
+        "name":  "Peigne coiffant 3 en 1",
+        "price":  3500,
+        "image":  "photos/Beaute/002-Peigne-coiffant-3-en-1-3500.png"
     },
     {
         "category":  "Beaute",
@@ -133,15 +133,15 @@
     },
     {
         "category":  "Beaute",
-        "name":  "Hot air styler 5 en 1",
-        "price":  7500,
-        "image":  "photos/Beaute/004-Hot-air-styler-5-en-1-7500.png"
+        "name":  "Boucleur francais 30 secondes",
+        "price":  6000,
+        "image":  "photos/Beaute/004-Boucleur-francais-30-secondes-6000.png"
     },
     {
         "category":  "Beaute",
-        "name":  "Peigne coiffant 3 en 1",
-        "price":  3500,
-        "image":  "photos/Beaute/005-Peigne-coiffant-3-en-1-3500.png"
+        "name":  "Boucleur automatique rapide",
+        "price":  7000,
+        "image":  "photos/Beaute/005-Boucleur-automatique-rapide-7000.png"
     },
     {
         "category":  "Beaute",
@@ -439,45 +439,51 @@
     },
     {
         "category":  "Eclairage",
-        "name":  "Lampe magnetique pour selfie",
-        "price":  4000,
-        "image":  "photos/Eclairage/001-Lampe-magnetique-pour-selfie-4000.png"
-    },
-    {
-        "category":  "Eclairage",
-        "name":  "Perche a selfie R1S L",
-        "price":  3000,
-        "image":  "photos/Eclairage/002-Perche-a-selfie-R1S-L-3000.jpg"
-    },
-    {
-        "category":  "Eclairage",
         "name":  "Ring light 14 pouces",
         "price":  7500,
-        "image":  "photos/Eclairage/003-Ring-light-14-pouces-7500.png"
+        "image":  "photos/Eclairage/001-Ring-light-14-pouces-7500.png"
     },
     {
         "category":  "Eclairage",
         "name":  "Ring light 18 pouces",
         "price":  15000,
-        "image":  "photos/Eclairage/004-Ring-light-18-pouces-15000.png"
+        "image":  "photos/Eclairage/002-Ring-light-18-pouces-15000.png"
     },
     {
         "category":  "Eclairage",
         "name":  "Ring light LED 12 pouces",
         "price":  6000,
-        "image":  "photos/Eclairage/005-Ring-light-LED-12-pouces-6000.png"
+        "image":  "photos/Eclairage/003-Ring-light-LED-12-pouces-6000.png"
     },
     {
         "category":  "Eclairage",
         "name":  "Ring light RGB 14 pouces",
         "price":  7500,
-        "image":  "photos/Eclairage/006-Ring-light-RGB-14-pouces-7500.png"
+        "image":  "photos/Eclairage/004-Ring-light-RGB-14-pouces-7500.png"
     },
     {
         "category":  "Eclairage",
         "name":  "Ring light RGB 18 pouces",
         "price":  15000,
-        "image":  "photos/Eclairage/007-Ring-light-RGB-18-pouces-15000.png"
+        "image":  "photos/Eclairage/005-Ring-light-RGB-18-pouces-15000.png"
+    },
+    {
+        "category":  "Eclairage",
+        "name":  "Lampe d appoint LED professionnelle",
+        "price":  9000,
+        "image":  "photos/Eclairage/006-Lampe-d-appoint-LED-professionnelle-9000.png"
+    },
+    {
+        "category":  "Eclairage",
+        "name":  "Lampe d eclairage photo et direct PL 48",
+        "price":  13500,
+        "image":  "photos/Eclairage/007-Lampe-d-eclairage-photo-et-direct-PL-48-13500.png"
+    },
+    {
+        "category":  "Eclairage",
+        "name":  "Perche a selfie R1S L",
+        "price":  3000,
+        "image":  "photos/Eclairage/008-Perche-a-selfie-R1S-L-3000.jpg"
     },
     {
         "category":  "Eclairage",
@@ -517,15 +523,15 @@
     },
     {
         "category":  "Eclairage",
-        "name":  "Lampe d eclairage photo et direct PL 48",
-        "price":  13500,
-        "image":  "photos/Eclairage/014-Lampe-d-eclairage-photo-et-direct-PL-48-13500.png"
-    },
-    {
-        "category":  "Eclairage",
         "name":  "Lampe de remplissage RGB a clip",
         "price":  4000,
         "image":  "photos/Eclairage/015-Lampe-de-remplissage-RGB-a-clip-4000.png"
+    },
+    {
+        "category":  "Eclairage",
+        "name":  "Lampe magnetique pour selfie",
+        "price":  4000,
+        "image":  "photos/Eclairage/015-Lampe-magnetique-pour-selfie-4000.png"
     },
     {
         "category":  "Eclairage",
@@ -580,12 +586,6 @@
         "name":  "Ruban LED intelligent",
         "price":  4500,
         "image":  "photos/Eclairage/024-Ruban-LED-intelligent-4500.png"
-    },
-    {
-        "category":  "Eclairage",
-        "name":  "Lampe d appoint LED professionnelle",
-        "price":  9000,
-        "image":  "photos/Eclairage/025-Lampe-d-appoint-LED-professionnelle-9000.png"
     },
     {
         "category":  "Maison",

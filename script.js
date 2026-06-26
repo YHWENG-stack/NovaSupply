@@ -90,6 +90,21 @@ const categoryLabels = {
 };
 
 const products = window.PRODUCTS || [];
+const tripodBadgeImages = new Set([
+  "photos/Eclairage/001-Ring-light-14-pouces-7500.png",
+  "photos/Eclairage/002-Ring-light-18-pouces-15000.png",
+  "photos/Eclairage/003-Ring-light-LED-12-pouces-6000.png",
+  "photos/Eclairage/004-Ring-light-RGB-14-pouces-7500.png",
+  "photos/Eclairage/005-Ring-light-RGB-18-pouces-15000.png",
+  "photos/Eclairage/006-Lampe-d-appoint-LED-professionnelle-9000.png",
+  "photos/Eclairage/007-Lampe-d-eclairage-photo-et-direct-PL-48-13500.png",
+  "photos/Eclairage/012-Eclairage-LED-rechargeable-23000.png",
+  "photos/Eclairage/013-Eclairage-parfait-pour-creations-18000.png",
+  "photos/Eclairage/016-Lampe-video-LED-RL-1800-13000.png",
+  "photos/Eclairage/017-Lampe-video-LED-RL-900-10000.png",
+  "photos/Eclairage/018-Lumiere-LED-RGB-studio-20000.png",
+  "photos/Eclairage/019-Lumiere-spot-RGB-sans-filtre-15000.png",
+]);
 const productGrid = document.querySelector("#productGrid");
 const categoryFilters = document.querySelector("#categoryFilters");
 const catalogCount = document.querySelector("#catalogCount");
@@ -106,6 +121,7 @@ if (productGrid && categoryFilters && products.length) {
   renderProducts(activeCategory);
   bindCategoryEntries();
   bindProductSearch();
+  bindProductLightbox();
 }
 
 function renderCategoryFilters(categories) {
@@ -164,11 +180,12 @@ function renderProducts(category) {
     .map(
       (product) => `
         <article class="product-card reveal">
-          <a class="product-image-link" href="${product.image}" target="_blank" rel="noreferrer" aria-label="${escapeHtml(product.name)}">
+          <button class="product-image-link" type="button" data-image="${escapeHtml(product.image)}" aria-label="${escapeHtml(product.name)}">
             <div class="product-media">
-              <img src="${product.image}" alt="${escapeHtml(product.name)}" loading="lazy" />
+              ${getProductBadge(product)}
+              <img src="${product.image}" alt="${escapeHtml(product.name)}" loading="lazy" draggable="false" />
             </div>
-          </a>
+          </button>
             <div class="product-info">
               <h3>${escapeHtml(product.name)}</h3>
               <strong>${formatPrice(product.price)}</strong>
@@ -195,6 +212,103 @@ function bindProductSearch() {
     activeQuery = productSearch.value;
     renderProducts(activeCategory);
   });
+}
+
+function bindProductLightbox() {
+  productGrid.addEventListener("click", (event) => {
+    const link = event.target.closest(".product-image-link");
+    if (!link) return;
+
+    event.preventDefault();
+    openProductLightbox(link.dataset.image, link.getAttribute("aria-label"));
+  });
+
+  document.addEventListener("contextmenu", (event) => {
+    if (event.target.closest(".product-media, .product-lightbox-frame")) {
+      event.preventDefault();
+    }
+  });
+
+  document.addEventListener("dragstart", (event) => {
+    if (event.target.closest(".product-media, .product-lightbox-frame")) {
+      event.preventDefault();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeProductLightbox();
+    }
+  });
+}
+
+function ensureProductLightbox() {
+  let lightbox = document.querySelector("#productLightbox");
+  if (lightbox) return lightbox;
+
+  lightbox = document.createElement("div");
+  lightbox.className = "product-lightbox";
+  lightbox.id = "productLightbox";
+  lightbox.setAttribute("aria-hidden", "true");
+  lightbox.setAttribute("role", "dialog");
+  lightbox.setAttribute("aria-label", "Aperçu du produit");
+  lightbox.innerHTML = `
+    <button class="product-lightbox-close" type="button" aria-label="Fermer">&times;</button>
+    <figure>
+      <div class="product-lightbox-frame">
+        <img alt="" draggable="false" />
+        <div class="lightbox-watermark" aria-hidden="true">
+          <span>Nova Supply · +225 07 88 03 85 02</span>
+          <span>Nova Supply · +225 07 88 03 85 02</span>
+          <span>Nova Supply · +225 07 88 03 85 02</span>
+          <span>Nova Supply · +225 07 88 03 85 02</span>
+          <span>Nova Supply · +225 07 88 03 85 02</span>
+          <span>Nova Supply · +225 07 88 03 85 02</span>
+          <span>Nova Supply · +225 07 88 03 85 02</span>
+          <span>Nova Supply · +225 07 88 03 85 02</span>
+          <span>Nova Supply · +225 07 88 03 85 02</span>
+        </div>
+      </div>
+      <div class="product-lightbox-contact" aria-hidden="true">
+        <strong>Nova Supply</strong>
+        <span>WhatsApp: +225 07 88 03 85 02</span>
+      </div>
+      <figcaption></figcaption>
+    </figure>
+  `;
+
+  lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox || event.target.closest(".product-lightbox-close")) {
+      closeProductLightbox();
+    }
+  });
+
+  document.body.appendChild(lightbox);
+  return lightbox;
+}
+
+function openProductLightbox(image, name) {
+  if (!image) return;
+
+  const lightbox = ensureProductLightbox();
+  const img = lightbox.querySelector("img");
+  const caption = lightbox.querySelector("figcaption");
+
+  img.src = image;
+  img.alt = name || "Produit";
+  caption.textContent = name || "";
+  lightbox.setAttribute("aria-hidden", "false");
+  document.body.classList.add("lightbox-open");
+  requestAnimationFrame(() => lightbox.classList.add("open"));
+}
+
+function closeProductLightbox() {
+  const lightbox = document.querySelector("#productLightbox");
+  if (!lightbox) return;
+
+  lightbox.classList.remove("open");
+  lightbox.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("lightbox-open");
 }
 
 function orderCategories(categories) {
@@ -225,6 +339,10 @@ function getCategoryLabel(category) {
 function formatPrice(price) {
   if (!price) return "Prix sur demande";
   return `${Number(price).toLocaleString("fr-FR")} FCFA`;
+}
+
+function getProductBadge(product) {
+  return tripodBadgeImages.has(product.image) ? `<span class="product-badge">Avec trépied</span>` : "";
 }
 
 function buildWhatsAppLink(product) {
