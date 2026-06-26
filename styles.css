@@ -579,7 +579,7 @@ h1 {
 
 .product-badge {
   position: absolute;
-  z-index: 2;
+  z-index: 6;
   top: -11px;
   right: -10px;
   max-width: calc(100% - 20px);
@@ -675,10 +675,24 @@ h1 {
   user-select: none;
 }
 
+.image-save-guard {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: block;
+  border-radius: inherit;
+  background: transparent;
+  cursor: zoom-in;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+}
+
 .lightbox-watermark {
   position: absolute;
   inset: -18%;
-  z-index: 2;
+  z-index: 4;
   display: grid;
   grid-template-columns: repeat(3, minmax(210px, 1fr));
   gap: 38px 24px;

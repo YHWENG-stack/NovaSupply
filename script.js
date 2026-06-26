@@ -184,6 +184,7 @@ function renderProducts(category) {
             <div class="product-media">
               ${getProductBadge(product)}
               <img src="${product.image}" alt="${escapeHtml(product.name)}" loading="lazy" draggable="false" />
+              <span class="image-save-guard" aria-hidden="true"></span>
             </div>
           </button>
             <div class="product-info">
@@ -257,6 +258,7 @@ function ensureProductLightbox() {
     <figure>
       <div class="product-lightbox-frame">
         <img alt="" draggable="false" />
+        <span class="image-save-guard" aria-hidden="true"></span>
         <div class="lightbox-watermark" aria-hidden="true">
           <span>Nova Supply · +225 07 88 03 85 02</span>
           <span>Nova Supply · +225 07 88 03 85 02</span>
