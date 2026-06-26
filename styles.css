@@ -621,10 +621,12 @@ h1 {
 .product-whatsapp {
   position: relative;
   isolation: isolate;
-  display: inline-flex;
+  display: flex;
+  width: 100%;
   min-height: 42px;
   align-items: center;
   justify-content: center;
+  padding: 0 12px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.62);
   border-radius: var(--radius);
@@ -634,6 +636,8 @@ h1 {
   color: var(--black);
   font-size: 13px;
   font-weight: 800;
+  line-height: 1.12;
+  text-align: center;
   transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
 }
 
