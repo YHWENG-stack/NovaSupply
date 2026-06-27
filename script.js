@@ -111,7 +111,7 @@ const catalogCount = document.querySelector("#catalogCount");
 const categoryEntryCards = document.querySelectorAll("[data-category-target]");
 const catalogSearch = document.querySelector("#catalogSearch");
 const productSearch = document.querySelector("#productSearch");
-let activeCategory = "Rangement";
+let activeCategory = "Eclairage";
 let activeQuery = "";
 
 if (productGrid && categoryFilters && products.length) {
@@ -314,7 +314,7 @@ function closeProductLightbox() {
 }
 
 function orderCategories(categories) {
-  const preferred = ["Rangement", "Eclairage"];
+  const preferred = ["Eclairage", "Rangement"];
   const late = ["Autres produits"];
   const rest = categories
     .filter((category) => !preferred.includes(category) && !late.includes(category))
