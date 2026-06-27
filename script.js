@@ -183,7 +183,7 @@ function renderProducts(category) {
           <button class="product-image-link" type="button" data-image="${escapeHtml(product.image)}" aria-label="${escapeHtml(product.name)}">
             <div class="product-media">
               ${getProductBadge(product)}
-              <img src="${product.image}" alt="${escapeHtml(product.name)}" loading="lazy" draggable="false" />
+              <img src="${getOptimizedImage(product.image)}" alt="${escapeHtml(product.name)}" loading="lazy" decoding="async" draggable="false" />
               <span class="image-save-guard" aria-hidden="true"></span>
             </div>
           </button>
@@ -345,6 +345,10 @@ function formatPrice(price) {
 
 function getProductBadge(product) {
   return tripodBadgeImages.has(product.image) ? `<span class="product-badge">Avec trépied</span>` : "";
+}
+
+function getOptimizedImage(image) {
+  return image.replace(/^photos\//, "optimized/photos/").replace(/\.(png|jpe?g)$/i, ".webp");
 }
 
 function buildWhatsAppLink(product) {
