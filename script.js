@@ -191,7 +191,7 @@ function renderProducts(category) {
               <h3>${escapeHtml(product.name)}</h3>
               <strong>${formatPrice(product.price)}</strong>
               <p class="product-availability"><b>En Gros / Détail</b><span>Disponible</span></p>
-              <a class="product-whatsapp" href="${buildWhatsAppLink(product)}" target="_blank" rel="noreferrer">Commander sur WhatsApp</a>
+              <a class="product-whatsapp" href="${buildWhatsAppLink(product)}" target="_blank" rel="noreferrer">💬 Demander sur WhatsApp</a>
             </div>
         </article>
       `
