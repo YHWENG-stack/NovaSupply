@@ -113,6 +113,8 @@ const catalogSearch = document.querySelector("#catalogSearch");
 const productSearch = document.querySelector("#productSearch");
 let activeCategory = "Eclairage";
 let activeQuery = "";
+let lightboxRequestId = 0;
+const highResImageCache = new Map();
 
 if (productGrid && categoryFilters && products.length) {
   const categories = orderCategories([...new Set(products.map((product) => product.category))]);
@@ -180,7 +182,7 @@ function renderProducts(category) {
     .map(
       (product) => `
         <article class="product-card reveal">
-          <button class="product-image-link" type="button" data-image="${escapeHtml(product.image)}" aria-label="${escapeHtml(product.name)}">
+          <button class="product-image-link" type="button" data-image="${escapeHtml(product.image)}" data-preview="${getOptimizedImage(product.image)}" aria-label="${escapeHtml(product.name)}">
             <div class="product-media">
               ${getProductBadge(product)}
               <img src="${getOptimizedImage(product.image)}" alt="${escapeHtml(product.name)}" loading="lazy" decoding="async" draggable="false" />
@@ -216,12 +218,35 @@ function bindProductSearch() {
 }
 
 function bindProductLightbox() {
+  const preloadFromControl = (control) => {
+    if (control?.dataset.image) {
+      loadImage(control.dataset.image).catch(() => {});
+    }
+  };
+
+  productGrid.addEventListener("pointerover", (event) => {
+    preloadFromControl(event.target.closest(".product-image-link"));
+  });
+
+  productGrid.addEventListener("focusin", (event) => {
+    preloadFromControl(event.target.closest(".product-image-link"));
+  });
+
+  productGrid.addEventListener(
+    "touchstart",
+    (event) => {
+      preloadFromControl(event.target.closest(".product-image-link"));
+    },
+    { passive: true }
+  );
+
   productGrid.addEventListener("click", (event) => {
     const link = event.target.closest(".product-image-link");
     if (!link) return;
 
     event.preventDefault();
-    openProductLightbox(link.dataset.image, link.getAttribute("aria-label"));
+    const origin = link.querySelector(".product-media")?.getBoundingClientRect() || link.getBoundingClientRect();
+    openProductLightbox(link.dataset.image, link.getAttribute("aria-label"), link.dataset.preview, origin);
   });
 
   document.addEventListener("contextmenu", (event) => {
@@ -258,6 +283,7 @@ function ensureProductLightbox() {
     <figure>
       <div class="product-lightbox-frame">
         <img alt="" draggable="false" />
+        <span class="product-lightbox-loader" aria-hidden="true"></span>
         <span class="image-save-guard" aria-hidden="true"></span>
         <div class="lightbox-watermark" aria-hidden="true">
           <span>Nova Supply · +225 07 88 03 85 02</span>
@@ -289,28 +315,102 @@ function ensureProductLightbox() {
   return lightbox;
 }
 
-function openProductLightbox(image, name) {
+async function openProductLightbox(image, name, preview, origin) {
   if (!image) return;
 
+  const requestId = ++lightboxRequestId;
   const lightbox = ensureProductLightbox();
   const img = lightbox.querySelector("img");
   const caption = lightbox.querySelector("figcaption");
 
-  img.src = image;
+  setLightboxOrigin(lightbox, origin);
+  lightbox.classList.add("loading", "from-card");
+  lightbox.classList.remove("image-ready", "delayed-loading", "settled");
+  if (preview) {
+    img.src = preview;
+  } else {
+    img.removeAttribute("src");
+  }
   img.alt = name || "Produit";
   caption.textContent = name || "";
   lightbox.setAttribute("aria-hidden", "false");
   document.body.classList.add("lightbox-open");
-  requestAnimationFrame(() => lightbox.classList.add("open"));
+  requestAnimationFrame(() => {
+    lightbox.classList.add("open");
+    window.setTimeout(() => lightbox.classList.add("settled"), 520);
+  });
+
+  window.setTimeout(() => {
+    if (requestId === lightboxRequestId && lightbox.classList.contains("loading")) {
+      lightbox.classList.add("delayed-loading");
+    }
+  }, 260);
+
+  try {
+    const loaded = await loadImage(image);
+    if (requestId !== lightboxRequestId) return;
+    img.src = loaded.src;
+    requestAnimationFrame(() => {
+      lightbox.classList.remove("loading");
+      lightbox.classList.add("image-ready");
+    });
+  } catch {
+    if (requestId !== lightboxRequestId) return;
+    lightbox.classList.remove("loading");
+    lightbox.classList.add("image-ready");
+  }
 }
 
 function closeProductLightbox() {
   const lightbox = document.querySelector("#productLightbox");
   if (!lightbox) return;
 
-  lightbox.classList.remove("open");
+  lightboxRequestId++;
+  lightbox.classList.remove("open", "loading", "delayed-loading", "image-ready", "settled");
   lightbox.setAttribute("aria-hidden", "true");
   document.body.classList.remove("lightbox-open");
+}
+
+function setLightboxOrigin(lightbox, rect) {
+  if (!rect) {
+    lightbox.style.removeProperty("--origin-x");
+    lightbox.style.removeProperty("--origin-y");
+    lightbox.style.removeProperty("--origin-scale");
+    return;
+  }
+
+  const originX = rect.left + rect.width / 2 - window.innerWidth / 2;
+  const originY = rect.top + rect.height / 2 - window.innerHeight / 2;
+  const finalWidth = Math.min(window.innerWidth * 0.86, 760);
+  const scale = Math.max(0.22, Math.min(0.72, rect.width / finalWidth));
+  lightbox.style.setProperty("--origin-x", `${originX}px`);
+  lightbox.style.setProperty("--origin-y", `${originY}px`);
+  lightbox.style.setProperty("--origin-scale", String(scale));
+}
+
+function loadImage(src) {
+  if (highResImageCache.has(src)) return highResImageCache.get(src);
+
+  const promise = new Promise((resolve, reject) => {
+    const image = new Image();
+    image.decoding = "async";
+    image.onload = async () => {
+      try {
+        if (image.decode) await image.decode();
+      } catch {
+        // The browser may report decode as unavailable after load; loaded pixels are still usable.
+      }
+      resolve(image);
+    };
+    image.onerror = () => {
+      highResImageCache.delete(src);
+      reject();
+    };
+    image.src = src;
+  });
+
+  highResImageCache.set(src, promise);
+  return promise;
 }
 
 function orderCategories(categories) {

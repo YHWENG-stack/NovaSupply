@@ -626,11 +626,11 @@ h1 {
   display: grid;
   place-items: center;
   padding: 24px;
-  background: rgba(17, 16, 14, 0.54);
-  backdrop-filter: blur(22px) saturate(118%);
+  background: rgba(17, 16, 14, 0.48);
+  backdrop-filter: blur(20px) saturate(116%);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 220ms ease;
+  transition: opacity 260ms cubic-bezier(0.22, 1, 0.36, 1), backdrop-filter 380ms ease;
 }
 
 .product-lightbox.open {
@@ -646,11 +646,15 @@ h1 {
   display: grid;
   gap: 12px;
   justify-items: center;
-  transform: translateY(10px) scale(0.97);
-  transition: transform 260ms ease;
+  opacity: 0;
+  transform: translate3d(var(--origin-x, 0), var(--origin-y, 18px), 0) scale(var(--origin-scale, 0.86));
+  transform-origin: center;
+  transition: transform 560ms cubic-bezier(0.22, 1, 0.36, 1), opacity 240ms ease;
+  will-change: transform, opacity;
 }
 
 .product-lightbox.open figure {
+  opacity: 1;
   transform: translateY(0) scale(1);
 }
 
@@ -662,6 +666,7 @@ h1 {
   box-shadow: 0 34px 90px rgba(0, 0, 0, 0.36);
   -webkit-touch-callout: none;
   user-select: none;
+  background: rgba(255, 250, 242, 0.08);
 }
 
 .product-lightbox img {
@@ -673,6 +678,54 @@ h1 {
   border-radius: inherit;
   -webkit-user-drag: none;
   user-select: none;
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 260ms ease, transform 420ms cubic-bezier(0.22, 1, 0.36, 1), filter 260ms ease;
+  will-change: opacity, transform, filter;
+}
+
+.product-lightbox.loading img {
+  filter: blur(1.4px) saturate(0.98);
+  opacity: 0.9;
+  transform: scale(1.002);
+}
+
+.product-lightbox.image-ready img {
+  filter: none;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.product-lightbox-loader {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
+.product-lightbox-loader::after {
+  content: "";
+  width: 34px;
+  height: 34px;
+  border: 2px solid rgba(255, 250, 242, 0.38);
+  border-top-color: rgba(255, 250, 242, 0.92);
+  border-radius: 999px;
+  animation: lightboxSpin 780ms linear infinite;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.24));
+}
+
+.product-lightbox.delayed-loading .product-lightbox-loader {
+  opacity: 1;
+}
+
+@keyframes lightboxSpin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .image-save-guard {

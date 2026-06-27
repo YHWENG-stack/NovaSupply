@@ -1,12 +1,6 @@
 window.PRODUCTS = [
     {
         "category": "Autres produits",
-        "name": "Aspirateur cyclonique puissant",
-        "price": 6500,
-        "image": "photos/Autres produits/0020-Aspirateur-cyclonique-puissant-6500.png"
-    },
-    {
-        "category": "Autres produits",
         "name": "Matelas gonflable double",
         "price": 11000,
         "image": "photos/Autres produits/002-Matelas-gonflable-double-11000.jpg"
@@ -112,6 +106,12 @@ window.PRODUCTS = [
         "name": "Devidoir de tuyau portable",
         "price": 12000,
         "image": "photos/Autres produits/017-Devidoir-de-tuyau-portable-12000.png"
+    },
+    {
+        "category": "Autres produits",
+        "name": "Aspirateur cyclonique puissant",
+        "price": 6500,
+        "image": "photos/Autres produits/0020-Aspirateur-cyclonique-puissant-6500.png"
     },
     {
         "category": "Beaute",
@@ -589,6 +589,18 @@ window.PRODUCTS = [
     },
     {
         "category": "Maison",
+        "name": "Brosse de nettoyage electrique 7 en 1",
+        "price": 9500,
+        "image": "photos/Maison/011-Brosse-de-nettoyage-electrique-7-en-1-9500.png"
+    },
+    {
+        "category": "Maison",
+        "name": "Diffuseur d arome effet flamme",
+        "price": 5000,
+        "image": "photos/Maison/012-Diffuseur-d-arome-effet-flamme-5000.png"
+    },
+    {
+        "category": "Maison",
         "name": "Aspirateur a acariens et masseur tactile",
         "price": 9500,
         "image": "photos/Maison/001-Aspirateur-a-acariens-et-masseur-tactile-9500.png"
@@ -646,18 +658,6 @@ window.PRODUCTS = [
         "name": "Balai rotatif lavage essorage",
         "price": 7500,
         "image": "photos/Maison/010-Balai-rotatif-lavage-essorage-7500.png"
-    },
-    {
-        "category": "Maison",
-        "name": "Brosse de nettoyage electrique 7 en 1",
-        "price": 9500,
-        "image": "photos/Maison/011-Brosse-de-nettoyage-electrique-7-en-1-9500.png"
-    },
-    {
-        "category": "Maison",
-        "name": "Diffuseur d arome effet flamme",
-        "price": 5000,
-        "image": "photos/Maison/012-Diffuseur-d-arome-effet-flamme-5000.png"
     },
     {
         "category": "Maison",
